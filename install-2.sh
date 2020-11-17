@@ -26,6 +26,8 @@ echo "USERNAME:USERPASSWORD" | chpasswd
 
 sed -i '82 s/#//' /etc/sudoers
 
+reflector --verbose --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
+
 git clone --bare https://github.com/taz40/dotfiles.git /home/USERNAME/.dotfiles
 
 /usr/bin/git --git-dir=/home/USERNAME/.dotfiles/ --work-tree=/home/USERNAME/ checkout
@@ -47,10 +49,22 @@ cd /opt
 
 sudo git clone https://aur.archlinux.org/yay-git.git
 
-chown -R nobody:nobody ./yay-git
+useradd tmp
+
+echo "tmp ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+
+chown -R tmp:tmp ./yay-git
 
 cd yay-git
 
-su nobody -c "makepkg -si"
+echo "y" | su tmp -c "makepkg -si"
 
 cd
+
+chown -R root:root /opt/yay-git
+
+su tmp -c "yay --nodiffmenu -S brave-bin olivia"
+
+userdel tmp
+
+sed '$d' /etc/sudoers
