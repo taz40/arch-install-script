@@ -67,4 +67,4 @@ su tmp -c "yay --nodiffmenu -S brave-bin olivia"
 
 userdel tmp
 
-sed '$d' /etc/sudoers
+sed -i '$d' /etc/sudoers
