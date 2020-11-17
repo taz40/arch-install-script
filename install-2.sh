@@ -63,7 +63,7 @@ cd
 
 chown -R root:root /opt/yay-git
 
-su tmp -c "yay --nodiffmenu -S brave-bin olivia"
+su tmp -c "echo y | yay --noremovemake --nodiffmenu -S brave-bin olivia"
 
 userdel tmp
 rm -r /home/tmp
