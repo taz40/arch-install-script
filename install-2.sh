@@ -37,3 +37,20 @@ chsh -s /bin/fish
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch
 
 grub-mkconfig -o /boot/grub/grub.cfg
+
+systemctl enable lightdm
+systemctl enable NetworkManager
+
+nitrogen --set-auto /home/USERNAME/Pictures/BHPUd0d.jpg
+
+cd /opt
+
+sudo git clone https://aur.archlinux.org/yay-git.git
+
+chown -R nobody:nobody ./yay-git
+
+cd yay-git
+
+su nobody -c "makepkg -si"
+
+cd

@@ -13,7 +13,7 @@ reflector --verbose --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
 
 sed -i '92,93 s/#//' /etc/pacman.conf
 
-pacstrap /mnt base base-devel linux linux-firmware emacs sudo nano btrfs-progs dosfstools networkmanager htop xorg-server xf86-video-intel mesa lib32-mesa nvidia nvidia-utils lib32-nvidia-utils lightdm lightdm-gtk-greeter xmonad xmonad-contrib xmobar dmenu alacritty picom nitrogen light-locker steam discord nautilus ntfs-3g pulseaudio vlc gnome-themes-extra arc-icon-theme intel-ucode amd-ucode grub efibootmgr os-prober git fish ttf-dejavu
+pacstrap /mnt base base-devel linux linux-firmware emacs sudo nano btrfs-progs dosfstools networkmanager htop xorg-server xf86-video-intel mesa lib32-mesa nvidia nvidia-utils lib32-nvidia-utils lightdm lightdm-gtk-greeter xmonad xmonad-contrib xmobar dmenu alacritty picom nitrogen light-locker steam discord nautilus ntfs-3g pulseaudio vlc gnome-themes-extra arc-icon-theme intel-ucode amd-ucode grub efibootmgr os-prober git fish ttf-dejavu numlockx xfce4-notifyd
 
 genfstab -U /mnt >> /mnt/etc/fstab
 
