@@ -49,7 +49,7 @@ cd /opt
 
 sudo git clone https://aur.archlinux.org/yay-git.git
 
-useradd tmp
+useradd -m tmp
 
 echo "tmp ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
@@ -66,5 +66,6 @@ chown -R root:root /opt/yay-git
 su tmp -c "yay --nodiffmenu -S brave-bin olivia"
 
 userdel tmp
+rm -r /home/tmp
 
 sed -i '$d' /etc/sudoers
