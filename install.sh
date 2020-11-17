@@ -19,10 +19,10 @@ genfstab -U /mnt >> /mnt/etc/fstab
 
 cp ./install-2.sh /mnt/
 
-sed -i "s/HOSTNAME/$hostname" /mnt/install-2.sh
-sed -i "s/ROOTPASSWORD/$rootpassword" /mnt/install-2.sh
-sed -i "s/USERNAME/$username" /mnt/install-2.sh
-sed -i "s/USERPASSWORD/$userpassword" /mnt/install-2.sh
+sed -i "s/HOSTNAME/$hostname/g" /mnt/install-2.sh
+sed -i "s/ROOTPASSWORD/$rootpassword/g" /mnt/install-2.sh
+sed -i "s/USERNAME/$username/g" /mnt/install-2.sh
+sed -i "s/USERPASSWORD/$userpassword/g" /mnt/install-2.sh
 
 arch-chroot /mnt ./install-2.sh
 
